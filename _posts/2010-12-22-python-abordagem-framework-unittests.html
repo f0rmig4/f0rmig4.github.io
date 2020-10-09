@@ -1,0 +1,74 @@
+---
+layout: default
+title: TDD em Python - Uma simples abordagem ao Framework UnitTest
+description: Afim de iniciar a minha aventura no fantastico mundo de Python comecei inicialmente estudando a sintaxe da linguagem afim de agregar conhecimentos em um novo projeto no qual fui designado em minha empresa, logo de início foi amor a primeira vista.
+---
+
+<article>
+  <small>22/12/2010</small>
+  <div class="post">
+    <h2>TDD em Python - Uma simples abordagem ao Framework UnitTest</h2>
+    {% include shared.html %}
+
+    <p>Afim de iniciar a minha aventura no fantastico mundo de Python comecei inicialmente estudando a sintaxe da linguagem afim de agregar conhecimentos em um novo projeto no qual fui designado em minha empresa, logo de início foi amor a primeira vista.</p>
+    <p>Em seguida támbem comecei meus estudos com o framework "UnitTests" que nada mais é um framework para nos auxiliar a implementar testes unitários em nossa aplicação ou "Test-driven development" (em português, Desenvolvimento Dirigido por Testes). Para quem não tem conhecimento a respeito de TDD indicaria ler este ótimo <a href="http://www.python.org.br/wiki/TestDrivenDevelopment" target="_blanck">artigo</a> aonde aborada o conseito da prática e suas vantagens.</p>
+
+    <p>Bem vamos a um pequeno exemplo de teste. <br>Estarei usando um arquivo people.py para o código e test_people.py para os testes:</p>
+<pre># -*- coding: UTF-8 -*-
+
+#importo a biblioteca de testes e a minha classe pessoa
+import unittest
+from people import People
+
+class PeopleTest(unittest.TestCase):
+
+  #este método é executado antes dos test
+  def setUp(self):
+    self.people = People('Pepe', 'f0rmig4', '30-08-1988')
+
+  #tests
+
+  def test_one(self):
+    self.people.sumPeople(10, 40)
+
+  def test_two(self):
+    self.people.sumPeople(10, 20)
+
+
+if __name__ == "__main__":
+    unittest.main()</pre>
+
+<p>Agora que temos alguns testes criados já podemos nossa classe pessoa.</p>
+
+<pre>class People:
+
+  def __init__(self, name, subname, age):
+    self.name = name
+    self.subname = subname
+    self.age = age
+
+  def sumPeople(self, var1, var2):
+    soma =  var1 + var2
+
+    if soma >= 10:
+      return True
+    else:
+      return False</pre>
+
+<p>Agora basta rodar nossa aplicação:</p>
+
+<pre>python test_people.py</pre>
+
+<p>E o resultado gerado deverá ser:</p>
+
+<pre>---------------------------------------------
+Ran 2 tests in 0.000s
+
+OK</pre>
+
+<p>Bem este exemplo trivial foi apenas para mostrar a simplicidade da utilização do unittest. Com ele foi possível enxergar a simplicidade de implementação de cobertura de testes em nossas aplicações.<br><br>Fiquem com deus e que a força esteja com vocês.</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
