@@ -1,0 +1,58 @@
+---
+layout: default
+title: Como instalar o composer no macOS
+description: O PHP composer é uma ferramenta de gerenciamento de pacotes de dependência elegante e simples para a linguagem PHP
+
+---
+
+<article>
+  <small>02/04/2020</small>
+  <div class="post">
+    <h2>Como instalar o Composer no macOS</h2>
+    {% include shared.html %}
+
+    <p>O PHP composer é uma ferramenta de gerenciamento de pacotes de dependência elegante e simples para a linguagem PHP.</p> 
+    <p>Você pode instalar facilmente todos os pacotes necessários usando o composer. Ele mantém uma lista de pacotes necessários em um arquivo json chamado composer.json. Este tutorial ajuda você a instalar e configurar o composer em seu sistema operacional macOS.</p>
+    
+    <p>
+      <strong>1 - Pré-requisitos:</strong>
+      <ul>
+        <li>Terminal do macOs</li>
+        <li>A versão PHP 5.3 ou superior</li>
+      </ul>
+    </p>
+    
+    <p><strong>2 - Download:</strong></p>
+    <p>Faça o download do arquivo binário do composer no site getcomposer.org, executando o seguinte comando. Ele criará um arquivo composer.phar no diretório atual.</p>
+    <pre>$ curl -sS https://getcomposer.org/installer | php</pre>
+    <p>Agora, copie esse arquivo composer.phar no diretório bin para disponibilizar em qualquer parte do sistema. Além disso, defina a permissão de execução no arquivo.</p>
+    <p><strong>3 - Configuração:</strong></p>
+<pre>$ mv composer.phar /usr/local/bin/composer 
+$ chmod +x /usr/local/bin/composer</pre>
+    <p><strong>4 - Execução:</strong></p>
+    <p>Pronto! agora basta execute o comando composer no prompt de comando. Isso fornecerá detalhes da versão do composer, e as opções disponiveis.</p>
+
+<pre>$ composer
+  ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+/ /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.8.5 2019-04-09 17:46:47
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+...
+</pre>
+<p>Então divirta-se e como costumo dizer: Que a força esteja com você!</p>
+  </div>
+</article>
+
+{% include comments.html %}

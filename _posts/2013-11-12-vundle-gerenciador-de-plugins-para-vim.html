@@ -1,0 +1,55 @@
+---
+layout: default
+title: Vundle - Gerenciador de Plugins para o editor VIM
+description: O plugin para o VIM, Vundle (ou Bundle), é um complemento muito útil para que possamos instalar e gerenciar seus plugins para o editor mais "modafuck" - o VIM.
+---
+
+<article>
+  <small>12/11/2013</small>
+  <div class="post">
+    <h2>Vundle - Gerenciador de Plugins para o editor VIM</h2>
+    {% include shared.html %}
+
+	<p>Salve, salve unix maniacos, segue uma dica massa.</p>
+	<p>Recentemente eu fiz uma limpa no meu .vimrc e aproveitei para instalar o <a href="https://github.com/gmarik/vundle" target="_blanck">Vundle</a> para gerenciar meus plugins.</p>
+
+	<p>O plugin para o VIM, <a href="https://github.com/gmarik/vundle" target="_blanck">Vundle</a> (ou Bundle), é um complemento muito útil para que possamos instalar e gerenciar seus plugins para o editor mais "modafuck" - o VIM.</p>
+	<p>De uma forma muito simples, você especifica em seu .vimrc quais plugins que você deseja carregar, ele se encarrega de baixar automaticamente as depedências.</p>
+
+	<p>Para instalar, basta clonar o repositório do projeto em seu home:</p>
+
+	<pre>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</pre>
+
+	<p>Adicionar as seguintes configurações em seu .vimrc:<br>
+	/home/myuser/.vimrc</p>
+
+<pre>set nocompatible
+filetype off
+
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+ " required!
+Bundle 'gmarik/vundle'
+
+filetype plugin indent on     " required!
+" End Vundle</pre>
+
+	<p>Feche e salve (:wq!) o arquivo.</p>
+
+	<p>Instale o Vundle/Bundle da seguinte forma:</p>
+
+	<pre>$ vim</pre>
+
+	<p>Tecle Esc (modo de visualização dentro da tela inicial do Vim), e execute o comando abaixo:</p>
+
+	<pre>:BundleInstall</pre>
+
+	<p>Aguarde completar a instação e pronto, divirta-se!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}

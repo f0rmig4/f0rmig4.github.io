@@ -1,0 +1,39 @@
+---
+layout: default
+title: Truques do Bash
+description: Outro dia navegando pela internet me deparei em um site,  "Command Line Fu" que da várias dicas de comandos bash. Existe uma gama de dicas
+---
+
+<article>
+  <small>17/05/2012</small>
+  <div class="post">
+    <h2>Truques do Bash</h2>
+    {% include shared.html %}
+
+    <p>Outro dia navegando pela internet me deparei em um site <a href="http://www.commandlinefu.com/" target="_blanck">"Command Line Fu"</a> que da varias dicas de comandos bash. Existe uma gama de dicas que sem dúvida auxilia e muito nossa vida.</p>
+    <p>Seguem alguns exemplos:</p>
+
+    <h4>Esqueceu do sudo:</h4>
+
+    <p>Você tenta apagar um arquivo sem permição</p>
+
+<pre>$ rm -f /var/log/ws-app.log
+rm: ws-app.log/: Operation not permitted</pre>
+
+	<p>Bah esqueci do SUDO, então basta apenas digitar:</p>
+
+	<pre>$ sudo</pre>
+
+	<p>Sim. O comando é o histórico, e ele sempre irá rodar o último comando.</p>
+
+	<h4>Salvar um arquivo que você editou no vim sem as permissões necessárias.</h4>
+
+	<p>Você abre um arquivo no qual você não tenha permissão de edita-lo ao menos que você use, oque pode ser feito?</p>
+
+	<pre>:w !sudo tee %</pre>
+
+	<p>Bem, esses e outros comandos estão disponíveis em <a href="http://www.commandlinefu.com/" target="_blanck">command line fu</a>. Convido todos que acharem algum comando mais interessante lá a deixarem um comentário.</p>
+  </div>
+</article>
+
+{% include comments.html %}

@@ -1,0 +1,43 @@
+---
+layout: default
+title: Como criar hooks para projetos Git
+description: Há um bom tempo eu uso "Git" e a cada dia acabo conhecendo um pouco mais e me apaixonando por ele. Eu já tinha lido sobre "hooks", mas nunca havia feito uso deles na minha vida real. Então, hoje decidi arremangar as mangas e sujar as mãos.
+---
+
+<article>
+  <small>08/01/2014</small>
+  <div class="post">
+    <h2>Como criar hooks para projetos Git</h2>
+    {% include shared.html %}
+
+	<p>Há um bom tempo eu uso "Git" e a cada dia acabo conhecendo um pouco mais e me apaixonando por ele. Eu já tinha lido sobre "hooks", mas nunca havia feito uso deles na minha vida real. Então, hoje decidi arremangar as mangas e sujar as mãos.</p>
+
+	<h4>Mas o que são "hooks"?</h4>
+
+	<p>São scripts que podem ser disparados quando certas ações especiais são invocadas. Se o script "hook" retorna um código de saída 0, o "Git" continua executando normalmente. Para qualquer código diferente de zero, o "Git" interrompe a operação. É muito simples!</p>
+
+	<p>Geralmente existem dois tipos de hooks: os do lado do cliente, que de modo geral são operações de "commit" ou "merge"; e os "hooks" do lado do servidor, que poderão ser um "push", por exemplo. Você pode criar seu script "hook" em diversas linguagem, a maioria deles são escritos em Shell, mas também podem ser escritos em PHP, Python, Ruby ou na linguagem que você preferir, o único detalhe a se observar é que ele terá que ser um script executável.</p>
+
+	<p>Os "hooks" encontram-se dentro do seu diretório .git/hooks e por padrão esse diretório vem preenchido com uma série de exemplos:</p>
+<pre>$ ls .git/hooks
+$ applypatch-msg.sample  commit-msg.sample  post-update.sample  pre-applypatch.sample  pre-commit.sample  prepare-commit-msg.sample  pre-rebase.sample  update.sample</pre>
+
+	<h4>Criando um "Hook":</h4>
+
+	<p>Digamos que a cada "commit" em meu repositório local eu queira garantir que meus testes sejam rodados. Para isso será necessário criar um "hook pre-commit" que, conforme o nome sugere, ele sempre é executado antes commit e será usado para inspecionar o "snapshot" que está prestes a ser comitado. Bem, vamos por a mão na massa.</p>
+
+	<p>1 - Primeiro criamos nosso arquivo:</p>
+<pre>$ vi .git/hooks/pre-commit</pre>
+
+	<p>2 - Para esse exemplo eu irei criar um simples shell que chamará minha suíte de testes PHPUnit:</p>
+
+<pre>#!/bin/sh
+#
+phpunit ./tests</pre>
+
+	<p>Simples? Sim, e espero que essa dica seja útil. E como costumo dizer: Que a força esteja com você!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}

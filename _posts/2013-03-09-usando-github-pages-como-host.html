@@ -1,0 +1,32 @@
+---
+layout: default
+title: Usando GitHub Pages como Host para seus projetos
+description: Como a ideia do blog sempre foi a de contribuir com lições aprendidas, vou compartilhar uma ótima dica que recebi por meio de um request do GitHub pelo @rafaelcastrocouto.
+---
+
+<article>
+  <small>09/03/2013</small>
+  <div class="post">
+    <h2>Usando GitHub Pages como Host para seus projetos</h2>
+    {% include shared.html %}
+
+    <p>Como a ideia do blog sempre foi a de contribuir com lições aprendidas, vou compartilhar uma ótima dica que recebi por meio de um request do <a href="http://github.com/" target="_blanck">GitHub</a> pelo <a href="https://github.com/rafaelcastrocouto" target="_blanck">@rafaelcastrocouto</a>.</p>
+    <p>A dica seria a possibilidade de usar o <a href="http://pages.github.com/" target="_blanck">GitHub Pages</a> como "host" para que seja possível disponibilizar seus projetos que lá estão armazenados para o público. Para aqueles que como eu, também utilizam o <a href="http://pages.github.com/" target="_blanck">GitHub Pages</a> como hospedagem para seu site pessoal, esse recurso pode ser algo de grande valia.</p>
+
+    <h4>Bem, e como fazer isso?</h4>
+    <p>É muito simples, basta criar um branch de nome "gh-pages" no próprio site do <a href="http://github.com/" target="_blanck">GitHub</a>, ou para quem preferir usando nosso bom e velho console e pronto, em algum minutos você estará disponibilizando seu projeto para o publico e ele poderá ser visto acessando sua página do <a href="http://github.com/" target="_blanck">GitHub</a> seguido do nome do projeto:</p>
+
+<pre>git branch gh-pages
+git checkout gh-pages
+git push origin gh-pages:gh-pages</pre>
+
+    <p><a href="https://f0rmig4.github.io/spaceinvaders.js/" target="_blanck"></a>https://f0rmig4.github.io/spaceinvaders.js/</a></p>
+    <p>&nbsp;</p>
+
+    <p>Agora você pode compartilhar aquele seu experimento CSS ou aquele seu projeto "maroto" em JavaScript para a comunidade.</p>
+    <p>Então como eu sempre repito: "Que a força esteja com vocês".</p>
+
+  </div>
+</article>
+
+{% include comments.html %}

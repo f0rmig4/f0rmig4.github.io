@@ -1,0 +1,71 @@
+---
+layout: default
+title: Blogando como Hacker - Jekyll e GitHub Pages
+description: Sempre tive muita dificuldade para centralizar meu site em um só lugar, então resolvi acabar de vez com isso e estudar uma forma simples e ao mesmo tempo rápido para publicação dos meus artigos.
+---
+
+<article>
+  <small>21/09/2012</small>
+  <div class="post">
+    <h2>Blogando como Hacker - Jekyll e GitHub Pages</h2>
+    {% include shared.html %}
+
+    <p>Sempre tive muita dificuldade para centralizar meu site em um só lugar então, resolvi acabar de vez com isso e estudar uma forma simples e ao mesmo tempo rápida para publicação dos meus artigos.</p>
+
+    <p>Para quem me conhece sabe que adoro aprender novas técnicas e práticas de programação web e,  sem dúvida, isso foi o que mais me motivou para a construção do meu novo blog: A oportunidade de incluir em um projeto pessoal varias práticas e tecnologias.</p>
+    <p>Algumas dessa práticas são:</p>
+
+    <ul>
+      <li>Responsive, mobile friendly;</li>
+      <li>Baseado no Jekyll;</li>
+      <li>Estático, rápido e otimizado;</li>
+      <li>Versionamento GIT e hospedado no GitHub Pages;</li>
+    </ul>
+
+    <h3>O que é Jekyll?</h3>
+
+    <p>Jekyll é um gerador de blog estático, em que você cria seus posts em <a href="http://pt.wikipedia.org/wiki/Markdown" target="_blanck">Markdown</a> e eles são convertidos para HTML. É estático, ele não usa banco de dados ou conteúdo dinâmico gerado em runtime.</p>
+
+    <p>Eu pirei de amor com a possibilidade de ter meu site inteiro em arquivos estáticos, podendo criar meus posts utilizando apenas o <a href="http://www.vim.org/" target="_blanck">VIM</a>.</p>
+    <p>Sim, eu sei que é um sentimento nerd e que é difícil de explicar. Como um bom usuário Linux que sou, com poucos comando eu posso criar, buscar e fazer o deploy dos meus artigos utilizando apenas meu bom e velho console. Cheguei a quase chorar de emoção.</p>
+
+    <h3>Outros motivos:</h3>
+
+    <ul>
+      <li><strong>Segurança -</strong> Eu nunca vou ter que me preocupar com as vulnerabilidades em WordPress ou PHP novamente.</li>
+      <li><strong>Desempenho -</strong> Arquivos estáticos são rápidos.</li>
+      <li><strong>Portabilidade -</strong> Se eu precisar migrar para outro host, eu posso instalar Jekyll no novo host ou simplesmente apertar a saída de uma instalação local Jekyll.</li>
+      <li><strong>Custo -</strong> Hospedagem free no GitHub Pages, agora estou livre para cancelar meu serviço de hospedagem pago.</li>
+      <li><strong>Domínio Próprio -</strong> Por padrão o site fica disponível em you_user.github.com, mas de forma simples existe a possibilidade de incluir um domínio próprio.</li>
+    </ul>
+
+    <p>Tom Preston-Werner (Mojombo), co-fundador do GitHub e autor Jekyll, fala ainda mais benefícios em seu artigo <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">"Blogging Like a Hacker"</a></p>
+    <p>Se todas essas razões soar bem para você, pergunte-se ...</p>
+    <p>Devo migrar?</p>
+
+    <h3>Limitação e considerações:</h3>
+
+    <p>Antes de termos uma opinião formada, vamos ter um momento para examinar algumas ressalvas a respeito do Jekyll e GitHub Pages:</p>
+    <ul>
+      <li><strong>Você não pode ter conteúdo dinâmico -</strong> Github roda o Jekyll, e logo só gera conteúdos estáticos. Isso significa que você não pode usar qualquer linguagem server-side ou estruturas para gerar ou lidar com conteúdo dinâmico.</li>
+      <li><strong>Restrições com Plugins do Jekyll -</strong> Github roda Jekyll em modo de segurança que desativa o uso de plugins personalizados.</li>
+    </ul>
+
+    <h3>Sites que utilizam Jekyll</h3>
+
+    <p><a href="http://github.com/mojombo/jekyll/wiki/Sites" target="_blanck">github.com/mojombo/jekyll/wiki/Sites</a></p>
+    <p>O primeiro site dessa lista é do <a href="http://tom.preston-werner.com/" target="_blanck">Tom Preston-Werner</a>.</p>
+
+    <p>Caso você queira saber mais a respeito do jekyll, de como instala-lo e utiliza-lo, segue abaixo algumas referências:</p>
+    <ul>
+      <li><a href="http://help.github.com/pages/" target="_blanck">GitHub Pages</a></li>
+      <li><a href="https://github.com/mojombo/jekyll" target="_blanck">Jekyll no GitHub</a></li>
+      <li><a href="https://github.com/mojombo/jekyll/wiki" target="_blanck">Wiki do Jekyll</a></li>
+    </ul>
+
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}

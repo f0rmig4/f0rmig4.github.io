@@ -1,0 +1,76 @@
+---
+layout: default
+title: Organizando Projetos AngularJS
+description: Para quem não conhece Angular JS é que um framework para camada Java Script, indicado para aplicações de larga escala e mantido pelo grupo de engenheiros da Google.
+---
+
+<article>
+  <small>10/06/2013</small>
+  <div class="post">
+    <h2>Organizando Projetos AngularJS</h2>
+    {% include shared.html %}
+
+  	<p>Para quem não conhece <a href="http://angularjs.org/" target="_blanck">Angular JS</a> é que um framework para camada Java Script, indicado para aplicações de larga escala e mantido pelo grupo de engenheiros da Google. Ele usa o HTML como uma "template engine" de Java Script, usando um namespace (ng), além de fornecer tudo que um framework MV* de respeito oferece.</p>
+
+  	<p>A documentação <a href="http://angularjs.org/" target="_blanck">Angular JS</a> é ótima para começar, lá consta uma serie de vídeos com exemplos práticos e uma documentação bem detalhada. No entanto, ele realmente não lhe diz como organizar e gerenciar seu aplicativo à medida que cresce a dezenas ou centenas de milhares de linhas de código.</p>
+
+  	<p>Tenho usado <a href="https://github.com/angular/angular-seed/tree/master/app" target="_blanck">Angular Seed</a> em alguns dos meus projetos, ele é um bootstrap para rápida inicialização de projetos Angular. Entretanto eu gostaria de ir um pouco mais além e oferecer alguns conselhos adicionais sobre a estrutura do projeto.</p>
+
+  	<p>Com isso, acabei juntando aqui algumas das minhas observações e as melhores práticas de como organizar seu aplicativo de larga escala.</p>
+
+  	<h3>Diretórios</h3>
+
+<pre>root
+  index.html
+
+    js
+      controllers
+        myController.js
+        ...
+      directives
+        myDirective.js
+        ...
+      factories
+        myFactory.js
+        ...
+      filters
+        myFilter.js
+        ...
+      interceptors
+        myInterceptor.js
+        ...
+      services
+        myService.js
+        ...
+
+      libs
+        jquery.js
+        angular.min.js
+        ...
+
+      app.js
+
+    css
+      ...
+
+    views
+      main.html
+	   ...</pre>
+
+  	<h3>Arquivos</h3>
+
+  	<p>Criei arquivos focalizados dentro da sua aplicação, que represente um único papel, por exemplo: postController e postService. Sem dúvida dessa será muito mais fácil de manter e de testar sua app.</p>
+
+  	<p>Gostaria de fazer uma exceção para directivas relacionadas. Por exemplo, se você tem um campo [file] onde você terá dois botões que exige uma directiva [submit] e um [cancel], seria interessante criar duas directivas em um mesmo arquivo.</p>
+
+  	<h3>Conclusão</h3>
+
+  	<p>Esta é a etapa muito importante, que deve-se dado a sua devida atenção e sem dúvida pode definir o sucesso ou fracasso do nosso projeto. Aqui fica minha dica quanto a melhorar a organização de projetos Angular JS de larga escala, caso tenho alguma opinião não deixe de escrever seu comentário.</p>
+  	<p>&nbsp;</p>
+
+  	<p>Que a força esteja com você.</p>
+
+  </div>
+</article>
+
+{% include comments.html %}

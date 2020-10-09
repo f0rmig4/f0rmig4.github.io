@@ -1,0 +1,180 @@
+---
+layout: default
+title: Lista de comandos GIT
+description: Vou abordar de forma rápida e resumida alguns comandos que uso no meu dia-a-dia. Informações mais detalhadas podem ser encontradas na documentação do projeto ou vem vários tutoriais existentes pela web.
+---
+
+<article>
+  <small>21/05/2011</small>
+  <div class="post">
+    <h2>Lista de comandos GIT</h2>
+    {% include shared.html %}
+
+    <p>Vou abordar de forma rápida e resumida alguns comandos que uso no meu dia-a-dia. Informações mais detalhadas podem ser encontradas na documentação do projeto ou vem vários tutoriais existentes pela web.</p>
+
+[Config]
+<pre>
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+</pre>
+
+[Repositório]
+<pre>
+git –bare init
+// Cria um repositório git para acesso remoto
+</pre>
+
+[ Commits ]
+<pre>
+git add .
+// Adiciona todos arquivos novos para commit
+
+git commit -m "commit descritpion"
+// Consolida as alterações adicionadas ao commit, com uma descrição
+</pre>
+
+[ Branchs ]
+<pre>
+git branch name_branch
+// cria um branch novo apartir do branch atual
+
+git branch -m name_old_branch name_new_branch
+// renomear um branch
+
+git branch nomebranch -d
+// Deleta um branch localmente atualizado
+
+git branch nomebranch -D
+// Deleta branch localmente independente da situação dele
+
+git push origin :nome_do_branch
+// Excluir branch remoto
+
+git branch -a
+// Lista branchs remotos
+
+git push origin branch_local:branch_remoto
+// cria um branch remoto baseado em um branch local
+
+git push –force origin branchremoto
+// realiza o push e sobrescreve o branch do servidor pelo seu branch local
+
+git branch –set-upstream meu_branch origin/meu_branch
+// vincula um branch local a um branch remoto (caso ainda não exista esta vinculação)
+
+git branch -m old_branch new_branch
+// Para renomear branch
+</pre>
+
+[ Log ]
+<pre>
+git log - p nome_arquivo
+// mostra o que foi alterado em cada commit em um arquivo
+
+git log –author=Name Author
+// mostra apenas commits e um autor específico
+
+git blame nome_arquivo
+// mostra quem foi o autor de cada linha de um arquivo
+
+git reset –hard HEAD^
+// desfaz as alterações consolidadas no último commit
+
+git reset –hard SHA1DOCOMMIT
+// desfaz as alterações consolidadas depois do commit específicado
+</pre>
+
+[ Whatchanged ]
+<pre>
+git whatchanged
+// mostra quais arquivos foram alterados em cada commit
+
+git whatchanged –author=Name Author
+// mostra quais arquivos foram alterados em cada commit de um autor específico
+</pre>
+
+[ Checkout ]
+<pre>
+git checkout -b meu_branch origin/meu_branch
+//baixa um branch remoto
+
+git checkout -f
+// desfaz as alterações não consolidadas no branch atual
+
+git checkout nome_arquivo
+// desfaz as alterações não consolidadas em um arquivo
+
+git checkout HEAD^1 -- nome_arquivo
+// recupera commits antigos, onde o número 1 representa a quantidade de commits abaixo, a partir do HEAD
+</pre>
+
+[ Tags ]
+<pre>
+git tag -a v2.0.0 -m 'version 2.0.0'
+// cria uma tag local com uma annotation
+
+git push origin v2.0.0
+// envia a tag para o servidor remoto
+
+git fetch --tags
+// baixa todas as tags do servidor
+
+git push origin –tags
+// realiza o push e envia todas as tags criadas para o remote
+
+git ls-remote --tags origin
+// lista tags remotas
+
+git tag
+// lista tags local
+
+git tag -d v2.0.0
+// remove uma tag localmente
+
+git push origin :v2.0.0
+// remove tag no remote
+
+git checkout -b <branch> v2.0.0 
+// cria um branch a partir da tag v2.0.0
+</pre>
+
+[ Revert ]
+<pre>
+git checkout SHA1^ — <filename>
+//Para reverter um arquivo para uma determinada versão
+
+git revert SHA1
+//Para reverter para um determinado commit criando um novo commit
+</pre>
+
+[ Reset ]
+<pre>
+git reset –hard SHA1
+//Para reverter para um determinado commit
+
+git reset --hard
+//Para reverter o último commit
+</pre>
+
+[ Stash ]
+<pre>
+git stash
+// move as alterações não adicionadas ao commit para memoria tempoária e limpa o
+// branch das alterações. Comando deve ser usada quando precisarmos mudar de branch
+// sem commitar as mudanças atuais.
+
+git stash list
+// mostra os stashs criados, exemplo:
+/*
+*   stash@{0}: WIP on branch_name
+*   stash@{1}: WIP on branch_name
+**/
+
+git stash apply stash@{1}
+// retorna as alterações do stash 1
+</pre>
+
+</div>
+</article>
+
+ {% include comments.html %}
