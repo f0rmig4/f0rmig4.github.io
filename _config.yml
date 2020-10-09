@@ -1,7 +1,7 @@
 # Site settings
 title: f0rmig4 # site title
 description: >- # site description
-    Site do f0rmig4. Engenheiro de software, artesão de bits, pai da Luz, apaixonado por games e por todos outros cacarecos tecnológicos.
+    Engenheiro de software, artesão de bits, pai da Luz, apaixonado por games e por todos outros cacarecos tecnológicos.
 lang: en-US # default lang
 timezone: Asia/Jakarta # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
@@ -18,7 +18,7 @@ author:
   twitter: f0rmig4 # twitter username
   facebook: f0rmig4 # facebook username
   email: f0rmig4@pm.me # email adress
-  avatar: /assets/img/avatar.jpg # change with your own avatar
+  avatar: /assets/img/avatar.png # change with your own avatar
 
 # URL settings
 url: "https://f0rmig4.github.io" #
