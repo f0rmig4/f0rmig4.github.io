@@ -3,6 +3,14 @@
 
 @import "main";
 
+.page-content {
+    h2,
+    h3,
+    h4 {
+        text-transform: uppercase;
+    }
+}
+
 #invader {
     display: none;
     position: fixed;
