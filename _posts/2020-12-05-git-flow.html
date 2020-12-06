@@ -14,15 +14,13 @@ description: Neste artigo irei descrever o que é Git Flow e trarei um simples c
 <p>Como sabem, Git é um sistema de controle de versões de software e Git Flow é um modelo de branches para projetos que utilizam Git. As pessoas utilizam Git Flow para gerir melhor e mais logicamente seus branches.</p>
 
 <h3>E como é o padrão de branch sugerido pelo Git Flow?</h3>
-<ul>
-    <li><strong>master:</strong> Contém o nosso código de produção.</li>
-    <li><strong>develop:</strong> Contém o código do nosso próximo deploy, todos os testes em homologação devem ser realizados nesse branch. Conforme as features vão sendo realizadas elas serão mescladas com o branch develop.</li>
-    <li><strong>feature/*:</strong>  São os branches criados para novas funcionalidades. Um exemplo: feature/crud-users. Esses branches são criadas sempre à partir da branch develop.</li>
-    <li><strong>hotfix/*:</strong>  São os branches criados para correções críticas em produção e por isso são criadas a partir do master.</li>
-    <li><strong>release/*:</strong>  São os branches com código estável de cada versão.</li>
-</ul>
-
-<p>Toda vez que um branch hotfix ou release é mesclado com o master o Git Glow gera automaticamente uma tag de versão, para agilizar um possível processo de downgrade.</p>
+<p><strong>master:</strong> Contém o nosso código de produção.</p>
+<p><strong>develop:</strong> Contém o código do nosso próximo deploy, todos os testes em homologação devem ser realizados nesse branch. Conforme as features vão sendo realizadas elas serão mescladas com o branch develop.</p>
+<p><strong>feature/*:</strong>  São os branches criados para novas funcionalidades. Um exemplo: feature/crud-users. Esses branches são criadas sempre à partir da branch develop.</p>
+<p><strong>hotfix/*:</strong>  São os branches criados para correções críticas em produção e por isso são criadas a partir do master.</p>
+<p><strong>release/*:</strong>  São os branches com código estável de cada versão.</p>
+<p>&nbsp;</p>
+<p>Toda vez que um branch hotfix ou release é mesclado com o master o Git Flow gera automaticamente uma tag de versão, para agilizar um possível processo de downgrade.</p>
 
 <h3>Vamos a um exemplo prático?</h3>
 <p>Vamos criar um projeto modelo para entender todo o fluxo de gestão dos branchs. Para isso vamos utilizar o plugin disponibilizado pelo git.</p>
