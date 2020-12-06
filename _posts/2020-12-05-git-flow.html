@@ -1,0 +1,143 @@
+---
+layout: page
+title: Git com Git Flow
+description: Neste artigo irei descrever o que é Git Flow e trarei um simples caso de uso.
+---
+
+<article>
+  <small>05/12/2020</small>
+  <div class="post">
+    <h2>Git com Git Flow</h2>
+    {% include shared.html %}
+
+<p>Olá seres humanos dessa realidade virtual, neste artigo irei descrever o que é Git Flow e trarei um simples caso de uso.</p>
+<p>Como sabem, Git é um sistema de controle de versões de software e Git Flow é um modelo de branches para projetos que utilizam Git. As pessoas utilizam Git Flow para gerir melhor e mais logicamente seus branches.</p>
+
+<h3>E como é o padrão de branch sugerido pelo Git Flow?</h3>
+<ul>
+    <li><strong>master:</strong> Contém o nosso código de produção.</li>
+    <li><strong>develop:</strong> Contém o código do nosso próximo deploy, todos os testes em homologação devem ser realizados nesse branch. Conforme as features vão sendo realizadas elas serão mescladas com o branch develop.</li>
+    <li><strong>feature/*:</strong>  São os branches criados para novas funcionalidades. Um exemplo: feature/crud-users. Esses branches são criadas sempre à partir da branch develop.</li>
+    <li><strong>hotfix/*:</strong>  São os branches criados para correções críticas em produção e por isso são criadas a partir do master.</li>
+    <li><strong>release/*:</strong>  São os branches com código estável de cada versão.</li>
+</ul>
+
+<p>Toda vez que um branch hotfix ou release é mesclado com o master o Git Glow gera automaticamente uma tag de versão, para agilizar um possível processo de downgrade.</p>
+
+<h3>Vamos a um exemplo prático?</h3>
+<p>Vamos criar um projeto modelo para entender todo o fluxo de gestão dos branchs. Para isso vamos utilizar o plugin disponibilizado pelo git.</p>
+
+<h3>1 - Instalando o plugin</h3>
+<pre>$ brew install git-flow</pre>
+
+<h3>2 - Criando um repositório git</h3>
+<pre>$ mkdir app-flow 
+$ cd app-flow
+$ git init</pre>
+
+<h3>3. Inicializando o Git Flow</h3>
+<pre>$ git flow init</pre>
+
+<p>Minha sugestão é sempre apertar enter para seguir com as nomenclaturas padrões sugerida pela plugin</p>
+
+<pre>No branches exist yet. Base branches must be created now.
+Branch name for production releases: [master] 
+Branch name for "next release" development: [develop] 
+ 
+How to name your supporting branch prefixes?
+Feature branches? [feature/] 
+Release branches? [release/] 
+Hotfix branches? [hotfix/] 
+Support branches? [support/] 
+Version tag prefix? []</pre>
+
+<h3>4. Iniciando uma feature</h3>
+
+<p>Vamos criar nossa primeira feature</p>
+
+<pre>$ git flow feature start crud-user</pre>
+<pre>Switched to a new branch 'feature/crud-user'
+ 
+Summary of actions:
+- A new branch 'feature/crud-user' was created, based on 'develop'
+- You are now on branch 'feature/crud-user'
+ 
+Now, start committing on your feature. When done, use:
+ 
+     git flow feature finish crud-user</pre>
+
+<p>Após executado o procedimento acima, vamos criar um arquivo users.js (apenas para simular o desenvolvimento de uma feature). E depois dar nosso commit.</p>
+
+<pre>$ touch users.js 
+$ git add . 
+$ git commit -m "User registration created"</pre>
+
+<h3>5. Finalizando a feature</h3>
+
+<p>Com a feature pronta agora podemos mesclá-la com o branch develop</p>
+
+<pre>$ git flow feature finish crud-user</pre>       
+<pre>Switched to branch 'develop'
+Updating f789672..d07d238
+Fast-forward
+ users.js | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 users.js
+Deleted branch feature/crud-user (was d07d238).
+ 
+Summary of actions:
+- The feature branch 'feature/crud-user' was merged into 'develop'
+- Feature branch 'feature/crud-user' has been removed
+- You are now on branch 'develop'</pre>
+
+<h3>6. Iniciando o release</h3>
+<p>Agora que já temos a nossa funcionalidade de usuários na branch develop vamos gerar o primeiro release.</p>
+<pre>$ git flow release start 1.0.0</pre>
+<pre>Switched to a new branch 'release/1.0.0'
+ 
+Summary of actions:
+- A new branch 'release/1.0.0' was created, based on 'develop'
+- You are now on branch 'release/1.0.0'
+ 
+Follow-up actions:
+- Bump the version number now!
+- Start committing last-minute fixes in preparing your release
+- When done, run:
+ 
+     git flow release finish '1.0.0</pre>
+
+<h3>7. Finalizando o release</h3>
+
+<pre>$ git flow release finish 1.0.0</pre>
+<pre>Switched to branch 'master'
+Merge made by the 'recursive' strategy.
+ users.js | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 users.js
+Deleted branch release/1.0.0 (was d07d238).
+ 
+Summary of actions:
+- Latest objects have been fetched from 'origin'
+- Release branch has been merged into 'master'
+- The release was tagged '1.0.0'
+- Release branch has been back-merged into 'develop'
+- Release branch 'release/1.0.0' has been deleted</pre>
+
+<p>Lembrando que mudanças podem acontecer na release antes de ser mesclada para master, porém em muitos cenários essa branch é imediatamente já juntada com a master.</p>
+<p>Seguindo até aqui, notara que o Git Flow irá abrir seu editor de texto default para que possa setar:</p>
+<ul>
+    <li>Primeiro: Incluir uma descrição para o merge, esse texto é opcional;</li>
+    <li>Segundo: Incluir um nome para a tag, que é obrigatório.</li>
+</ul>
+
+<p>Feito isso seu projeto está na master pronto para ir para produção.</p>
+
+<h3>8. Conclusão</h3>
+<p>Dentro da minha realidade o Git Flow serviu como um ótimo recurso, tivemos um grande ganho de produtividade e organização. O fluxo de trabalho nos ajudou a melhorar a dinamização da equipe de desenvolvimento, fazer entregas de valor de negócio para o cliente mais constantes, além de facilitar o acompanhamento de branches ​​e deploy​.</p>
+<p>Nesse post trouxe um simples exemplo de caso de uso, espero que seja útil dentro das suas rotinas de trabalho.</p>
+<p>Que a força esteja com vocês</p>
+
+    </div>
+</article>
+
+{% include comments.html %}
