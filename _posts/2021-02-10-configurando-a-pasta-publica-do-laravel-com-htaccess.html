@@ -1,0 +1,25 @@
+---
+layout: page
+title: Configurando a pasta publica do Laravel com htaccess
+description: Muitas vezes temos a necessidade configurar um projeto Laravel em um servidor onde não temos
+---
+
+<article>
+  <small>10/02/2021</small>
+  <div class="post">
+    <h2>Configurando a pasta publica do Laravel com htaccess</h2>
+    {% include shared.html %}
+
+    <p>Muitas vezes temos a necessidade configurar um projeto Laravel em um servidor onde não temos acesso ao Virtual Host, sendo assim a forma mais simples de redirecionar os pedidos a pasta public/ é criando um simples .htaccess na raiz do projeto.</p>
+
+<pre>RewriteEngine on
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]</pre>
+
+<p>Atualize o navegador e veja a magia acontecer.</p>
+<p>Que a força esteja com vocês.</p>
+
+    </div>
+</article>
+
+{% include comments.html %}
