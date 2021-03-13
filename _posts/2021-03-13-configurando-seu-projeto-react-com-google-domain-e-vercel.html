@@ -12,14 +12,14 @@ description: Recentemente precisei configurar meu domínio adquirido no Google D
 
     <p></p>
     <p>Buenas,</p>
-    <p>>Recentemente precisei configurar meu domínio adquirido no <a href="https://domains.google/" target="_blanck">Google Domain</a>, a minha ideia foi ter toda uma infraestrutura gratuita, tanto o serviço de hospedagem para o meu site quanto o servidor de email.</p>
+    <p>Recentemente precisei configurar meu domínio adquirido no <a href="https://domains.google/" target="_blanck">Google Domain</a>, a minha ideia foi ter toda uma infraestrutura gratuita, tanto o serviço de hospedagem para o meu site quanto o servidor de email.</p>
     <p>Para isso resolvi desenvolver o site da minha nano empresa a <a href="https://dalee.dev/" target="_blanck">dalee.dev</a> em <a href="https://www.gatsbyjs.com/" target="_blanck">Gatsby</a> hospedada no <a href="https://vercel.com/" target="_blanck">Vercel</a> e utilizando o serviço da <a href="https://improvmx.com/" target="_blanck">Improvmx</a> apontando para o <a href="https://gmail.com/" target="_blanck">Google Mail</a>.</p>
     <p>Como o processo não foi muito simples e não encontrei muito assunto na internet resolvi criar essa documentação para mim e obviamente para compartilhar com o mundo.</p>
     <p>Vamos lá!</p>
 
     <h3>1 - Configurando o seu domínio no Vercel</h3>
     <p>Abra as configurações do seu domínio em https://domains.google.com/ e navegue até a seção DNS. Defina o DNS Vercel em vez dos DNS padrão do Google:</p>
-    <img src="/img/posts/2021/03/01.png" id="01 post" />
+    <img src="/assets/img/posts/2021/03/01.png" id="01 post" />
 
     <h3>2 - Adicionando o domínio no projeto Vercel</h3>
 
@@ -30,18 +30,18 @@ description: Recentemente precisei configurar meu domínio adquirido no Google D
 
     <p>Na sessão de domínios clique no botão 'Add'. Escolha a entrada correta na lista e, após algum tempo, você verá seu domínio, como na imagem a seguir.</p>
     
-    <img src="/img/posts/2021/03/02.png" id="02 post" />
+    <img src="/assets/img/posts/2021/03/02.png" id="02 post" />
 
     <p>É necessário saber qual entrada DNS criar no Google Domain, então clique na em 'Edit' e depois 'View DNS Records & More for dalee.dev →'</p>
 
-    <img src="/img/posts/2021/03/03.png" id="03 post" />
+    <img src="/assets/img/posts/2021/03/03.png" id="03 post" />
     
     <p>Copie o IP do servidor da Vercel, para o próximo passo.</p>
 
     <h3>3 - Estamos chegando ao fim</h3>
     <p>Na interface do google domain vá novamente na aba DNS e navegue até embaixo onde encontrará o container 'Registros de recursos personalizados'. basta apenas criar uma entrada DNS do tipo A com o IP da Vercel.</p>
 
-    <img src="/img/posts/2021/03/04.png" id="04 post" />
+    <img src="/assets/img/posts/2021/03/04.png" id="04 post" />
 
     <p>Feito isso, agora temos nosso domínio configurado e apontando para o Vercel.</p>
     <p>No próximo post vou trazer uma documentação detalhada de como configurei meus e-mails usando a estrutura do Vercel, o Improvmx e o Google Mail.</p>
