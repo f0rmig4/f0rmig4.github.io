@@ -1,0 +1,54 @@
+---
+layout: page
+title: Email gratuito na Vercel com Improvmx e Google Mail
+description: Vou detalhar neste artigo os passos que dei para poder ter um email personalizado e gratuito usando a estrutura da Vercel, Improvmx e Google Mail
+---
+
+<article>
+  <small>14/03/2021</small>
+  <div class="post">
+    {% include shared.html %}
+
+    <p>No post passado e dei a dica de como fazer o <a href="https://f0rmig4.github.io/deploy-do-seu-projeto-react-com-google-domain-na-vercel/">Deploy do seu projeto React com Google Domain na Vercel.</a></p>
+    <p>Agora vou detalhar neste artigo os passos que dei para poder ter um email personalizado e gratuito usando a estrutura da Vercel, Improvmx e Google Mail.</p>
+    <p>Vem comigo.</p>
+
+    <h3>1 - Usando ImrovMX para criar um alias de e-mail</h3>
+
+    <p>O ImprovMX é uma ferramenta de encaminhamento de email, de simple uso e o melhor , gratuita. Se você quiser saber mais a respeito desse recurso, indico visitar o <a href="https://improvmx.com/" target="_blanck">site</a> oficial.</p>
+
+    <p>A primeira coisa que você precisa fazer é criar uma conta e adicionar seu domínio.</p>
+
+    <p><a href="https://f0rmig4.github.io/assets/img/posts/2021/03/05.png" target="_blanck">Print 01</a></p>
+
+    <p>Assim que seu domínio for adicionado, você precisa configurá-lo. Clique no ícone de engrenagem próximo a ele e você verá uma página que mostra os registros MX e SPF que você precisa configurar no Vercel.</p>
+
+    <h3>2 - Configurando o Domínio na Vercel</h3>
+    <p>Agora vá para os <a href="https://vercel.com/dashboard/domains" target="_blanck">domínios</a> na Vercel e na seção DNS Records adicione os registros ImprovMX. Ficando assim como na imagem abaixo:</p>
+
+    <p><a href="https://f0rmig4.github.io/assets/img/posts/2021/03/06.png" target="_blanck">Print 02</a></p>
+
+    <p>Quando esses registros existirem na Vercel, você receberá uma confirmação no painel do ImprovMX de que seu domínio está configurado corretamente e abaixo do seu domínio você verá a mensagem 'Email forwarding active' na cor verde.</p>
+
+    <p><a href="https://f0rmig4.github.io/assets/img/posts/2021/03/07.png" target="_blanck">Print 03</a></p>
+
+    <p>Em seguida, vá para a primeira aba 'Aliases' e adicione os e-mails desejados.</p>
+    <p>Lembre-se de que toda essa configuração pode não começar a funcionar imediatamente, logo tenha paciência, tome um café e depois valide as mudanças.</p>
+
+    <h3>3 - Usando o e-mail como remetente</h3>
+
+    <p>Bem, agora você já estará recebendo seus emails de redirecionamento, nesse passo para usar seu email como remetente teremos que fazer um esforço a mais. E isso depende de qual serviço de e-mail você está usando. No meu caso, foi o Google Mail ou o velho conhecido Gmail.</p>
+    <p>Para tal missão você deve seguir todos os passos do artigo do próprio Improvmx que mostra de forma simples e didática como adicionar seu alias a uma conta do GMail usando o SMTP do Google.</p>
+    <p>Acesse <a href="https://improvmx.com/guides/send-emails-using-gmail/" target="_blanck">aqui.</a></p>
+    
+    <p>Gostaria ainda de dar uma dica valiosa, no passo 04 do tutorial do Improvmx, onde é necessário informar o SMTP Server e a senha, eu fiquei batendo cabeça por horas tentando informar a minha senha do email, mas obviamente eu estava errado. Você deve informar a senha gerada no passo 02.</p>
+    <p>Seguindo cada uma dessas etapas, você terá toda uma estrutura de boa disponibilidade e free como host para seu projeto web.</p>
+
+    <p>Qualquer dúvida, é só prender o grito, fazer um sinal de fumaça e ou ainda me enviar um email com a dúvida para contato@dalee.dev</p>
+
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
