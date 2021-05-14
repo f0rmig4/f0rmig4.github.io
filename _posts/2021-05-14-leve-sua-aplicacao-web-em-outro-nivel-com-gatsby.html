@@ -1,0 +1,130 @@
+---
+layout: page
+title: Leve sua aplicação web em outro nível com Gatsby
+description: Neste artigo irei abordar algumas noções básicas do framework, como funciona nos bastidores, por que você
+pode considerar usá-lo para um projeto e também irei apresentar um case de sucesso
+---
+
+<article>
+  <small>14/05/2021</small>
+  <div class="post">
+    {% include shared.html %}
+
+    <p>Neste artigo irei abordar algumas noções básicas do framework, como funciona nos bastidores, por que você pode
+      considerar usá-lo para um projeto e também irei apresentar um case de sucesso.</p>
+
+    <h3>O que é GatsbyJS?</h3>
+    <p>É um gerador de sites moderno e incrivelmente rápido para React, o site oficial define desta forma. Mas o que
+      eles querem dizer:</p>
+
+    <p>É incrivelmente rápido! Pode acreditar em mim, qualquer pessoa que visitar o seu site vai dizer Ohhhh!</p>
+    <p>É um gerador de sites moderno: você pode criar sites usando-o react.js e todo o seu conteúdo é gerado em por um
+      build.</p>
+    <p>Mais para frente eu vou abordar um case de sucesso, mas convido você a visitarem o site da minha nano empresa que
+      obviamente esta escrito em Gatsby: <a target="_blank" href="https://daalee.dev">daalee.dev</a></p>
+
+    <h3>Por que usar o Gatsby?</h3>
+    <p>Hoje em dia, cada vez mais, os acessos e pesquisas no google estão sendo principalmente feitos pelos celulares e
+      smartphones. No primeiro trimestre 2021: > 50% de todo o tráfego na internet é a partir de dispositivos móveis;
+    </p>
+
+    <p>E também em 2021 entram no ar as novas regras para para rankeamento de sites do algoritmo do google o "Core Web
+      Vitals", que é descrita pela Google como "a chave para o sucesso de qualquer site na web".</p>
+
+    <p>Core Web Vitals é que um conjunto de métricas relacionadas à velocidade, capacidade de resposta e estabilidade
+      visual. Elas se somam a outros fatores, como velocidade de carregamento da página e facilidade de uso para
+      dispositivos móveis, para compor os fatores de rankeamento do Google.</p>
+
+    <p>Aí que o Gatsby entra, oferecendo uma arquitetura para os sites otimizarem carregamento, execução de scripts,
+      otimizar imagens de acordo com cada dispositivo e por aí vai.</p>
+
+    <h3>Como funciona?</h3>
+    <p>Gatsby faz a busca dos dados usando GraphQL em tempo de construção, todos esses dados são usados para gerar os
+      arquivos estáticos em HTML, CSS e JavaScript.</p>
+
+    <p><a href="https://f0rmig4.github.io/assets/img/posts/2021/05/diagram-gatsby.png" target="_blanck">Veja</a> como
+      funciona o fluxo de construção do Gatsby.</p>
+
+    <h3>Quais Vantagens</h3>
+    <p>Por que você deve considerar o uso de GatsbyJs?</p>
+
+    <h4>1. Performance</h4>
+    <p>Eu já mencionei o termo 'rápido' e 'velocidade' muitas vezes nesse artigo, e claro todos sabemos que arquivos
+      estáticos trazem essa característica.</p>
+
+    <h4>2. Segurança</h4>
+    <p>Nunca mais vou me preocupar com vulnerabilidade na minha aplicação, pois arquivos estáticos não deixam nenhuma
+      porta aberta para ataques.</p>
+
+    <h4>3. Plugins</h4>
+    <p>Existem muitos plugins úteis disponíveis no site oficial do Gatsby, que podem ser adicionados facilmente na
+      aplicação via npm. Alguns exemplos de plugins:</p>
+
+    <ul>
+      <li>gatsby-plugin-image: Adicionar imagens responsivas ao seu site e, ao mesmo tempo, mantendo alto desempenho;
+      </li>
+      <li>gatsby-source-wordpress: Obtenha dados do WordPress de forma escalável e eficiente com WPGraphQL;</li>
+      <li>gatsby-plugin-react-helmet: Usado para gerir metatags e SEO;</li>
+      <li>gatsby-plugin-google-tagmanager: Adiciona facilmente o Google Tagmanager ao site Gatsby.</li>
+    </ul>
+
+    <p>Existem muitos plugins disponíveis que podem nos ajudar a acelerar a maior parte do trabalho e tornar nossa
+      aplicação mais rica.</p>
+
+    <h4>4. Starters</h4>
+    <p>Os Staters do Gatsby são templates que já vem com a estrutura criada e que agiliza o processo de desenvolvimento.
+      No site oficial tem um filtro onde você pode buscar uma template com determinada característica, por exemplo:
+      Gatsby 3 + Bootstrap.</p>
+
+    <p>A documentação é super amigável, e eu definitivamente recomendo que você comece por aí se quiser aprender Gatsby.
+    </p>
+
+    <h4>5. Jamstack</h4>
+    <p>Jamstack é a cultura de usar JavaScript, APIs e marcação para construir sites. Eles se concentram principalmente
+      em como você pode usar essas tecnologias para construir sites que não dependem do gerenciamento de servidores, mas
+      desacoplam o front-end e o back-end.</p>
+
+    <p>Construir sites com Gatsby é novamente uma forma de seguir a cultura Jamstack. Isso resulta em melhor desempenho,
+      maior segurança, escalonamento fácil e barato e melhor experiência do desenvolvedor.</p>
+
+    <h4>6. Baseado em ReactJs</h4>
+    <p>A comunidade ReactJs é poderosa com muitos componentes existentes a um clique de distância.
+
+    <h4>7. Facilidade de integração com CMS</h4>
+    <p>Nos possibilita integração com os principais gerenciadores de conteúdo do mercado, o Wordpress por exemplo, que
+      hoje gerencia mais de 30% de toda a internet.</p>
+
+    <h4>8. SEO</h4>
+    <p>Gatsby permite que seus sites aproveitem várias técnicas de otimização de SEO. Isso faz com que seu site seja
+      classificado em uma posição mais elevada nos mecanismos de pesquisa. Existem também muitos plug-ins que podem
+      ajudá-lo a facilitar o trabalho</p>
+
+    <h3>Caso de Sucesso</h3>
+    <p>Como mencionei no início deste artigo, eu gostaria de trazer um exemplo de como essa tecnologia conseguiu trazer
+      de forma concreta o aumento de performance e logo o aumento de acesso orgânico ao site de um dos meus projetos que
+      implementamos Gatsby.</p>
+    <p>O cenário foi esse:</p>
+    <p>O CTO do <a href="https://centradodofranqueado.com.br" target="_blanck">centradodofranqueado.com.br</a> nos
+      incumbiu na missão de aumentar a performance do seu blog que era escrito
+      em Wordpress, contava com mais de 3000 acessos diários, com mais de 500 artigos escritos e com uma performance no
+      Google Pagespeed menor que 30 pontos. A missão foi elevar a pontuação para maior que 90 pontos.</p>
+    <p>Esse seria um investimento estratégico para ser um diferencial competitivo junto aos players que geram conteúdo
+      para o segmento.</p>
+    <p>No fim das contas conseguimos elevar a pontuação do Google Pagespeed para 99 no mesmo mês em que a ferramenta do
+      google foi descontinuada e substituída pelo 'Core Web Vitals'.</p>
+    <p>Também é importante ressaltar que teve uma força tarefa da equipe de redação e design para padronizar as imagens,
+      urls e linkagens.</p>
+    <p>Aqui você pode conferir o
+      <a href="https://f0rmig4.github.io/assets/img/posts/2021/05/01.png" target="_blanck">print</a> do
+      comparativo das pontuações do Core Web Vitals.
+    </p>
+
+    <p>&nbsp;</p>
+    <p>Você gostou do artigo, tem alguma dúvida ou sugestão, manda um email para contato@dalee.dev.</p>
+
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
