@@ -1,0 +1,68 @@
+---
+layout: page
+title: Como deletar um commit no git, local e remoto
+description: Neste post, irei apenas explicar como deletar um commit em seu repositório local e em um repositório remoto caso você já tenha enviado o commit
+---
+
+<article>
+  <small>13/06/2021</small>
+  <div class="post">
+    {% include shared.html %}
+
+    <p>Já aconteceu comigo mais de uma vez em ter submetido alguma mudança em meu repositório com um usuário errado.</p>
+    <p>Neste post, irei apenas explicar como deletar um commit em seu repositório local e em um repositório remoto caso você já tenha enviado o commit.</p>
+
+    <h3>Excluir um commit local</h3>
+    <p>Em seu repositório local, rode os seguinte comando:</p>
+
+<pre>git log --pretty=oneline --abbrev-commit</pre>
+
+    <p>O comando acima vai resultar uma saída semelhante a essa:</p>
+
+<pre>e676a91 (HEAD -> master, origin/master, origin/HEAD) added webrick
+7fc9b4b update in post description
+568b45f Update post
+fee3260 Link update
+9daabce Link update
+72cba48 Update on post structure</pre>
+
+  <p>O commit e676a91 é o commit mais recente e o que queremos deletar, para isso usaremos rebase.</p>
+
+<pre>git rebase -i HEAD~2</pre>
+
+  <p>Esse comando abrirá seu editor de texto padrão com seus dois commits mais recentes:</p>
+
+<pre>pick 7fc9b4b update in post description
+pick e676a91 added webrick
+
+# Rebase 568b45f..e676a91 onto 568b45f (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message</pre>
+
+    <p>Devemos observar que o commit mais recente é que está na parte inferior, nesse caso na linha dois.  Os comandos abaixo são apenas comentários que fornecem uma documentação do comando rebase, a única coisa que precisamos fazer  é deletar a linha que corresponde ao commit que queremos excluir e salvar o arquivo.</p>
+    <p>Agora podemos ver que a alteração foi aplicada:</p>
+
+<pre>git log --pretty=oneline --abbrev-commit
+7fc9b4b (HEAD -> master, origin/master, origin/HEAD) update in post description
+568b45f Update post
+fee3260 Link update
+9daabce Link update
+72cba48 Update on post structure</pre>
+
+    <h3>Excluir um commit remoto</h3>
+    <p>Para remover um commit que você já enviou para o repositório remoto, você deve primeiro excluí-lo localmente como na etapa anterior e, em seguida, enviar suas alterações para o remoto.</p>
+
+<pre>git push --force</pre>
+
+    <p>É importante ressaltar que você deve ter muito cuidado ao deletar commits porque uma vez que você fizer isso, eles desaparecerão para todo o sempre.</p>
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
