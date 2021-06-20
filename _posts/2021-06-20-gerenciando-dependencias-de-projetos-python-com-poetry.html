@@ -1,0 +1,144 @@
+---
+layout: page
+title: Gerenciando dependências de projetos Python com Poetry
+description: Nem sempre o processo de gestão de dependências e publicação com projetos Python é um trabalho simples. Existem muitas ferramentas envolvidas no ecossistema
+tags: python
+---
+
+<article>
+  <small>20/06/2021</small>
+  <div class="post">
+    {% include shared.html %}
+ 
+    <p>Nem sempre o processo de gestão de dependências e publicação com projetos Python é um trabalho simples. Existem muitas ferramentas envolvidas no ecossistema: virtualenv, pip, pipenv, etc. E muitas vezes pode se tornar um pouco confuso.</p>
+    <p>Para facilitar a nossa vida existe uma ferramenta que se chama <a href="https://python-poetry.org/" target="_blanck">Poetry!</a></p>
+    
+    <h3>Instalação</h3>
+    <p>Antes de mais nada precisamos instalar o poetry na nossa máquina.</p>
+<pre>❯ brew install poetry</pre>    
+<pre>❯ poetry --version      
+Poetry version 1.1.6</pre>
+    
+    <p>Aqui vemos que temos a versão 1.1.6 instalada. Para atualizar a poetry, você pode executar:</p>
+    
+<pre>❯ poetry self update</pre>
+    
+    <p>Você também pode instalar poetry usando o comando pip tradicional, mas o poetry fica limitada a criar ambientes virtuais para a versão python para a qual foi instalado.</p>
+    
+    <h3>Inicializar um projeto</h3>
+    
+    <p>Para estudar poetry, vamos criar um novo projeto com o nome de 'poet':</p>
+    
+<pre>❯ poetry new poet
+Created package poeta in poet</pre>
+    
+    <p>A estrutura em árvore do projeto criado é semelhante à seguinte.</p>
+    
+<pre>├── pyproject.toml
+  ├── README.rst
+  ├── poet
+  │   └── __init__.py
+  └── tests
+    ├── __init__.py
+    └── test_poet.py</pre>
+    
+    <p>O arquivo pyproject.toml contém todas as informações necessárias para gerenciar nosso pacote. Mas caso você já tenha um projeto e deseja gerenciar as dependências com poetry, pode usar o comando init. Você receberá um shell interativo para configurar seu projeto.</p>
+    
+<pre>❯ poetry init</pre>
+    
+    <h3>Adicionando um pacote</h3>
+    <p>Certo, vamos supor que precisamos manipular datas e será necessário importar uma biblioteca, com poetry, adicionar uma dependência é simples.</p>
+    
+<pre>❯ poetry add arrow</pre>
+    
+    <h3>Remova um pacote</h3>
+    
+    <p>Remover um pacote também é uma tarefa simples, graças ao comando remove.</p>
+<pre>❯ poetry remove arrow</pre>
+    
+    <h3>Instale o pacote e dependências</h3>
+    <p>Para instalar o pacotes e suas dependências basta rodar o comando:</p>
+    
+<pre>❯ poetry install</pre>
+    
+    
+    <h3>Listar dependências</h3>
+    
+    <p>Para listar todas as dependências instaladas, podemos usar o comando show.</p>
+    
+<pre>❯ poetry show
+arrow           1.1.0  Better dates & times for Python
+attrs           21.2.0 Classes Without Boilerplate
+more-itertools  8.8.0  More routines for operating on iterables, beyond itertools
+packaging       20.9   Core utilities for Python packages
+pluggy          0.13.1 plugin and hook calling mechanisms for python
+py              1.10.0 library with cross-python path, ini-parsing, io, code, log facilities
+pyparsing       2.4.7  Python parsing module
+pytest          5.4.3  pytest: simple powerful testing with Python
+python-dateutil 2.8.1  Extensions to the standard Python datetime module
+six             1.16.0 Python 2 and 3 compatibility utilities
+wcwidth         0.2.5  Measures the displayed width of unicode strings in a terminal</pre>
+
+    <h3>Ambiente virtual</h3>
+    
+    <p>Precisamos ativar nosso ambiente com o comando shell</p>
+    
+<pre>❯ poetry shell
+Virtual environment already activated: /Users/f0rmig4/Library/Caches/pypoetry/virtualenvs/poet-vHKbTPL9-py3.9</pre>
+    
+    <p>Para obter informações importante do nosso ambiente virtual o comando info pode ser muito útil</p>
+    
+<pre>❯ poetry env info
+Virtualenv
+Python:         3.9.5
+Implementation: CPython
+Path:           /Users/f0rmig4/Library/Caches/pypoetry/virtualenvs/poet-vHKbTPL9-py3.9
+Valid:          True
+
+System
+Platform: darwin
+OS:       posix
+Python:   /usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9</pre>
+    
+    <p>Também  podemos adicionar a opção “- path” ao comando anterior para obter apenas o caminho do ambiente virtual</p>
+    
+<pre>❯ poetry env info --path
+/Users/f0rmig4/Library/Caches/pypoetry/virtualenvs/poet-vHKbTPL9-py3.9</pre>
+    
+    <h3>Mão na massa</h3>
+    <p>Vamos criar um simples script Python para estudo:</p>
+
+<pre>❯ cd poet
+❯ vi poet/run.py</pre>
+    
+    <p>Adicione o seguinte conteúdo:</p>
+    
+<pre>"""Run App"""
+
+import arrow
+
+def run():
+  arw = arrow.utcnow()
+  print(f"Date Now: {arw}")
+
+if __name__ == "__main__":
+  run()
+
+</pre> 
+    
+    <h3>Executar o nosso script</h3>
+    <p>Para executar seu script basta usar o comando run:</p>
+    
+<pre>❯ poetry run python poet/run.py</pre>
+    
+    <h3>Build</h3>
+    <p>Agora para construir um pacote, basta executarmos o comando build!</p>
+<pre>❯ poetry build</pre>
+    
+    <p>Agora estamos prontos para iniciar projetos python de forma simples e rápida. Tudo o que você precisa lembrar deste ponto em diante é usar Poetry - e apenas Poetry - para gerenciar todas as dependências para os seus projetos.</p>
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
