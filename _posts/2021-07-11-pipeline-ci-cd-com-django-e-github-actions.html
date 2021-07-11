@@ -1,0 +1,77 @@
+---
+layout: page
+title: Pipeline de CI/CD com Django e Github Actions
+description: Olá, hoje vamos falar o que é Continuous Integration (CI), Continuous Deployment (CD), e Test Driven Development (TDD)
+tags: python tdd django test
+---
+
+<article>
+  <small>11/07/2021</small>
+  <div class="post">
+    {% include shared.html %}
+ 
+    <p>Hoje vamos falar o que é Continuous Integration (CI), Continuous Deployment (CD), e Test Driven Development (TDD). Podemos dizer que essas técnicas somadas aplicam a automação de todo o ciclo de vida de um software e juntas, essas práticas são chamadas de "pipeline de CI/CD".</p>
+    <p>Minha ideia é criar uma série de post's onde irei trazer uma abordagem teórica e construir uma simples pipeline com uma app Django, Github e Github Action.</p>
+
+    <h3>O que é integração contínua?</h3>
+    <p>É um conjunto de práticas e ou de ferramentas que nos ajudam a entregar software com qualidade em pequenos pedaços.</p>
+    <p>Continuous integration significa ter automações na nossa pipeline, na nossa linha de produção de software é um conjunto de práticas que leva as equipes de desenvolvimento a implementar pequenas mudanças e fazer check-in do código para repositórios de controle de versão com frequência. Por exemplo: Sempre ao gerar um Pull Request (PR) irá rodar diversas rotinas para validar as mudanças, linting, testes unitários, linting, testes de integração, teste de regressão, teste de componentes.</p>
+    <p>O objetivo técnico da CI é estabelecer uma maneira consistente e automatizada de construir, empacotar e testar aplicativos.</p>
+
+    <h3>Entrega contínua</h3>
+    <p>Ou Continuous Deployment, Delivery é um mecanismo que nos ajudam a fazer entregas contínuas, essas duas técnicas vem dos princípios ágil e do <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html">manifesto ágil</a>, para quem não conhece eu indico muito essa leitura.</p>
+    <p>O CD automatiza a entrega de aplicativos para diversos ambientes. A maioria das equipes trabalha com vários ambientes diferentes de produção, como ambientes de desenvolvimento e teste, e o CD garante que haja uma maneira automatizada de enviar as nossas releases a esses ambientes.</p>
+
+    <h3>Porque devemos considerar o uso de CI/CD</h3>
+
+    <h4>1. Mudanças de código menores</h4>
+
+    <p>Permite que você integre pequenos pedaços de código de uma só vez.</p>
+    <p>Usando testes contínuos, torna a tarefa mais simples de identificar problemas. E funciona muito bem para grandes equipes de desenvolvimento que trabalham remotamente.</p>
+
+    <h4>2. Isolamentos de falha</h4>
+    <p>Projetar seu sistema com CI / CD garante que o isolamento de falhas seja mais rápido de detectar e isolar o problema antes que ele possa causar danos a todo o sistema.</p>
+
+    <h4>3. Mais confiabilidade do teste</h4>
+    <p>Usando CI / CD, a confiabilidade do teste aumenta devido a utilização de teste unitário que irá cobrir parte dos cenários de testes da aplicação.</p>
+
+    <h4>4. Menor lista de pendências</h4>
+
+    <p>Incorporar CI / CD ao processo de desenvolvimento da nossa organização reduz o número de defeitos não críticos em nosso backlog. Esses pequenos defeitos são detectados antes da produção e corrigidos antes de serem liberados para os usuários finais.</p>
+
+    <h4>5. Reduzir custos</h4>
+    <p>Reduz o número de erros e consequentemente libera o tempo do desenvolvedor que poderia ser gasto no desenvolvimento do produto, pois não há tantas alterações de código para corrigir no futuro se o erro for detectado rapidamente.</p>
+
+    <h4>6. Equipe mais feliz</h4>
+    <p>Teoricamente, tendo um processo de desenvolivimento bem definido, mantem a saude mental de toda a equipe :)</p>
+
+    <h3>Desenvolvimento Orientado a Testes (TDD)</h3>
+
+    <p>Test Driven Development (TDD), ou Test-first development, é um conjunto de técnicas orientado a testes que tambem é uma pratica relacionada com Extreme Programming (XP) e metodologia ágil. Com TDD temos um desenvolvimento incremental do código, iniciado pelos testes (Miller,2004).</p>
+    <h4>Resumindo, o que é TDD?</h4>
+    <p>Escreva os testes primeiro!</p>
+
+    <ul>
+        <li>Escreva testes para testar sua feature.</li>
+        <li>Execute testes (somente os novos testes podem falhar).</li>
+        <li>Escreva seu código para implementar o recurso.</li>
+        <li>Execute os testes (repita os passos 3 e 4 até passarem todos os testes).</li>
+        <li>Refatore o código (se necessário).</li>
+    </ul>
+
+    <h4>O que deve ser testado?</h4>
+    <ul>
+        <li>As principais regras de negócio;</li>
+        <li>A maior porcentagem de cenários de testes;</li>
+        <li>Tudo que pode quebrar.</li>
+    </ul>
+
+    <p>&nbsp</p>
+    <hr />
+    <p>No próximo artigo irei trazer uma solução de como organizar nossos testes unitários no Django.</p>
+    <p>Até logo e que a força esteja com você!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
