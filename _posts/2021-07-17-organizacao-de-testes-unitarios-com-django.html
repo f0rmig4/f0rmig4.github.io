@@ -1,0 +1,137 @@
+---
+layout: page
+title: Organização de testes unitários com Django
+description: Esse é o terceiro post da série Pipeline de CI/CD com Django e Github Actions, nesse post eu vou trazer uma sugestão de como organizar testes em uma aplicação Django
+tags: python django test unittest
+---
+
+<article>
+  <small>17/07/2021</small>
+  <div class="post">
+    {% include shared.html %}
+    <p>Esse é o terceiro post da série <a href="https://f0rmig4.dev/pipeline-ci-cd-com-django-e-github-actions/" target="_blanck">Pipeline de CI/CD com Django e Github Actions</a>, nesse post eu vou trazer uma sugestão de como organizar testes em uma aplicação Django. </p>
+    
+    <h3>teste unitário?</h3>
+    <p>Como o nome sugere, é um teste de uma unidade. E o que é considerado uma unidade? Um bloco de código, como por exemplo um modelo é uma função, uma classe enfim.</p>
+    <p>A intenção em criar testes unitários é que você tenha principalmente um passo a passo de como resolver um problema.</p>
+    
+    <h3>1 - Configurando projeto inicial:</h3>
+    
+    <p>Se você está acompanhando essa série de posts, você deve ter lido o último tutorial, onde <a href="https://f0rmig4.dev/criando-um-app-com-django/">criamos um projeto do zero em Django.</a></p>
+    <p>Eu disponibilizei o projeto no meu Github para que possa agilizar o processo. Então clone o repositório e depois baixe a branch feature/init para iniciarmos a brincadeira.</p>
+    
+<pre>❯ git clone https://github.com/f0rmig4/django-pipeline.git
+❯ cd django-pipeline
+❯ git fetch origin feature/init:feature/init
+❯ git checkout feature/init</pre>
+    
+    <p>A estrutura em árvore do projeto criado é semelhante à seguinte.</p>
+     
+<pre>├── manage.py
+    ├── core
+    └── question
+       ├── migrations
+       ├── admin.py
+       ├── apps.py
+       ├── models.py
+       ├── tests.py
+       └── views.py</pre>
+    
+    <p>O diretório 'core' é onde está o projeto Django e já o diretório 'question' onde encontra-se a nossa aplicação que vamos trabalhar.</p>
+    
+    <p>Geralmente os testes de cada aplicação devem estar dentro do arquivo question/tests.py, não existe problema em colocar os seus testes aqui, entretanto dentro de uma aplicação podemos realizar vários tipos de testes, como por exemplo, testes unitários para modelos, views e formulários.</p>
+    
+    <p>Se você incluir todos os seus testes no arquivo tests.py essa prática pode se tornar um pouco confusa, conforme o projeto cresce, aumenta o nível de complexidade. Pensando nisso eu realizei uma pesquisa e através de outras experiências de projetos eu cheguei na seguinte estrutura:</p>
+    
+<pre>├── manage.py
+    ├── core
+    └── question
+       ├── migrations
+       ├── admin.py
+       ├── apps.py
+       ├── models.py
+       ├── tests
+            └── unittest
+                ├── tests_models.py
+                ├── tests_views.py
+                └── tests_forms.py
+        └── views.py</pre>
+    
+    <p>Como nossa aplicação pode ter vários tipos de testes, como unitários, integração, eu sugiro criar um diretório para cada tipo de testes e posteriormente dividir as rotinas com as suas respectivas responsabilidades, como o exemplo acima.</p>
+    <p>Essa estrutura é sugerida para cada aplicação, caso tenhamos 10 aplicações no projeto devemos seguir essa estrutura. Obviamente não é uma regra e sim apenas uma sugestão de padronização e organização.</p>
+    
+    
+    <h3>2 -  Criando nossos testes</h3>
+    <p>Antes de criar os nossos testes devemos iniciar criando nossos modelos, abaixo segue o exemplo criado para o nosso caso de estudo:</p>
+    
+<pre>from django.db import models
+     
+class Question(models.Model):
+    name = models.CharField('Name', max_length=100)
+    amount = models.PositiveIntegerField('Amount')
+    
+    def __str__(self):
+        return self.name</pre>
+     
+     
+    
+    <p>Com o modelo criado devemos criar nossas migrations:</p>
+    
+<pre>❯ python3 manage.py makemigrations
+❯ python3 manage.py migrate</pre>
+    
+    <p>Uma dica bacana, caso você esteja utilizando PostgreSQL o usuário do banco de dados deve ter permissão de criar databases, durante a execução dos testes é criado um banco de dados temporária e depois também é destruído assim que os testes rodam. No caso do SQLite não será necessário.</p>
+    
+    <p>Agora vamos criar nosso primeiro teste, dentro do arquivo question/tests/tests_models.py</p>
+    
+<pre>from django.test import TestCase
+from ..models import Question
+    
+class QuestionTestCase(TestCase):
+    def setUp(self):
+        Question.objects.create(
+            name="You are you?",
+            amount=12
+        )
+    
+    def test_return_str(self):
+        q = Question.objects.get(name="You are you?")
+        self.assertEquals(q.__str__(), "You are you?")</pre>
+     
+    
+    <p>Algumas considerações do código acima:</p>
+    
+    <ul>
+        <li>O primeiro passo a ser dado é importar o model;</li>
+        <li>O método setUp, é executado toda vez que a classe é chamada, neste exemplo estamos utilizando para criar uma question antes de rodar o teste;</li>
+        <li>Uma coisa importante todo método de teste deve iniciar com "test_";</li>
+        <li>No exemplo o test_return_str vai assegurar que minha controle sempre vai retornar o valor "You are you?".</li>
+    </ul>
+    
+    
+    <p>Agora vamos no terminal e vamos rodar os testes da nossa aplicação question:</p>
+    
+<pre>python3 manage.py test question</pre>
+    
+    <p>Caso o seu teste rodou com sucesso, devemos ter um retorno semelhante a esse exemplo:</p>
+    
+<pre>❯ python3 manage.py test question
+     
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+    
+OK
+Destroying test database for alias 'default'...</pre>
+    
+    <p>Chegamos ao fim dessa jornada, vimos um exemplo muito simples de como organizar nossas rotinas de testes para uma aplicação Django.</p>
+    <p>No próximo post da série vamos, então, por fim configurar nossa CI/CD com Django e Github Actions.</p>
+
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
