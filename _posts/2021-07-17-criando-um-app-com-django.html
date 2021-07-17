@@ -1,0 +1,85 @@
+---
+layout: page
+title: Criando um app com Django
+description: Esse é o segundo post da série Pipeline de CI/CD com Django e Github Actions., minha ideia aqui é criar simples aplicação em Django para depois darmos sequência na criação da nossa pipeline.
+tags: python django
+---
+
+<article>
+  <small>17/07/2021</small>
+  <div class="post">
+    {% include shared.html %}
+ 
+    <p>Esse é o segundo post da série <a href="https://f0rmig4.dev/pipeline-ci-cd-com-django-e-github-actions/" target="_blanck">Pipeline de CI/CD com Django e Github Actions</a>, minha ideia aqui é criar simples aplicação em Django para depois darmos sequência na criação da nossa pipeline.</p>
+    <p>Nesse post, você aprenderá como instalar o Django e como configurar a estrutura do seu projeto.</p>
+    <p>Inicialmente vamos criar um diretório para que possamos ativar nosso ambiente python, nesse exemplo eu vou usar o pyenv:</p>
+
+<pre>❯ mkdir pipeline-django
+❯ cd pipeline-django
+❯ pyenv activate env</pre>
+
+    <p>Agora instalamos a dependência, que por hora seria o próprio framework.</p>
+
+<pre>❯ pip install django</pre>
+
+    <p>Se tudo ocorreu corretamente na instalação podemos ver a versão do framework. Rode o comando para validar a versão do Django</p>
+
+<pre>❯ python3 -m django --version
+3.2.4</pre>
+
+    Agora vamos criar o projeto, que darei o nome de core</p>
+
+<pre>❯ django-admin startproject core .</pre>
+
+    Precisamos criar nossa app e vamos chama-la de question</p>
+
+<pre>❯ python3 manage.py startapp question</pre>
+
+    <p>A estrutura em árvore do projeto criado é semelhante à seguinte.</p>
+
+<pre>├── manage.py
+    ├── core
+    └── question
+    ├── migrations
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── tests.py
+    └── views.py</pre>
+
+    <p>Bem, agora vamos adicionar o aplicativo em nosso projeto, especificando o nome do projeto na lista INSTALLED_APPS. Para isso abra o arquivo core/settings.py</p>
+
+<pre>INSTALLED_APPS = [
+'django.contrib.admin',
+'django.contrib.auth',
+'django.contrib.contenttypes',
+'django.contrib.sessions',
+'django.contrib.messages',
+'django.contrib.staticfiles',
+'question'
+]</pre>
+
+    <p>A principal característica do Django Apps é a independência, cada aplicativo funciona como uma unidade independente no suporte ao projeto principal.</p>
+
+    <p>O próximo passo é rodar nossa migrate,  assim iremos criar a estrutura de dados:</p>
+
+<pre>❯ python3 manage.py migrate</pre>
+
+    <p>Vamos criar um usuário para nosso django admin</p>
+
+<pre>❯ python3 manage.py createsuperuser</pre>
+
+    <p>Se tudo ocorreu corretamente até esse ponto, vamos rodar o servidor e acessar o admin com os dados de usuário criado no passo anterior</p>
+
+<pre>❯ python3 manage.py runserver</pre>
+
+    <p>Muito bom jovens, vimos nesse post como criar um simples projeto usando Django.</p>
+
+    <p>E como já mencionado, esse projeto servirá como base para criação da nossa pipeline, no próximo post irei trazer uma abordagem de organização dos testes unitários para projetos Django.</p>
+
+    <p>Que a força esteja com vocês!</p>
+
+  </div>
+</article>
+
+{% include comments.html %}
