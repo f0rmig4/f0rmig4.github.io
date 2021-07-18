@@ -20,8 +20,8 @@ tags: python django test unittest
     <p>Se você está acompanhando essa série de posts, você deve ter lido o último tutorial, onde <a href="https://f0rmig4.dev/criando-um-app-com-django/">criamos um projeto do zero em Django.</a></p>
     <p>Eu disponibilizei o projeto no meu Github para que possa agilizar o processo. Então clone o repositório e depois baixe a branch feature/init para iniciarmos a brincadeira.</p>
     
-<pre>❯ git clone https://github.com/f0rmig4/django-pipeline.git
-❯ cd django-pipeline
+<pre>❯ git clone https://github.com/f0rmig4/pipeline-django.git
+❯ cd pipeline-django
 ❯ git fetch origin feature/init:feature/init
 ❯ git checkout feature/init</pre>
     
@@ -62,7 +62,7 @@ tags: python django test unittest
     
     
     <h3>2 -  Criando nossos testes</h3>
-    <p>Antes de criar os nossos testes devemos iniciar criando nossos modelos, abaixo segue o exemplo criado para o nosso caso de estudo:</p>
+    <p>Antes de criar os nossos testes devemos iniciar criando nossos modelos, abaixo segue o exemplo criado para o nosso caso de estudo. Altere o arquivo question/models.py</p>
     
 <pre>from django.db import models
      
@@ -111,9 +111,9 @@ class QuestionTestCase(TestCase):
     
     <p>Agora vamos no terminal e vamos rodar os testes da nossa aplicação question:</p>
     
-<pre>python3 manage.py test question</pre>
+<pre>❯ python3 manage.py test question</pre>
     
-    <p>Caso o seu teste rodou com sucesso, devemos ter um retorno semelhante a esse exemplo:</p>
+    <p>Caso o seu teste tenha rodado com sucesso, devemos ter um retorno semelhante a esse exemplo:</p>
     
 <pre>❯ python3 manage.py test question
      
