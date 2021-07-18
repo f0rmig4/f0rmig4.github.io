@@ -1,4 +1,4 @@
-# f0rmig4.guthub.io
+# f0rmig4.github.io
 
 ## Features
 
